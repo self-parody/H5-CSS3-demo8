@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>button show</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 发光按钮 */
+        .btn1-box{
+            width: 200px;
+            height: 200px;
+            background-color: #000;
+            margin: 50px;
+            overflow: hidden;
+            float: left;
+            text-align: center;
+        }
+        .btn1-box .btn1{
+            width: 100px;
+            line-height: 40px;
+            border: 2px solid #fff;
+            margin: 53px auto;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            cursor:pointer;
+        }
+        .btn1-box .btn1::after{
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: -100%;
+            top: 0;
+            background: linear-gradient(120deg,transparent,white 50%,transparent);
+            transition: 0.5s all;
+        }
+        .btn1-box .btn1:hover{
+            box-shadow: 0 0 50px 20px white;
+        }
+        .btn1-box .btn1:hover::after{
+            left: 100%;
+        } 
+
+        /* 立体按钮 */
+        .btn2-box{
+            width: 200px;
+            height: 200px;
+            background-color:rgb(190, 232, 248);
+            margin: 50px;
+            overflow: hidden;
+            float: left;
+            perspective: 700px;
+            text-align: center;
+        }
+        .btn2-box .btn2{
+            width: 100px;
+            
+            line-height: 40px;
+            background-color: rgb(99, 197, 236);
+            margin: 53px auto;
+            color: white;
+            
+            position: relative;          
+            cursor:pointer;
+            transform: rotateY(30deg) rotateX(45deg);
+            transform-style: preserve-3d;
+        }
+        .btn2-box .btn2::before{
+            content: "";
+            height: 100%;
+            width: 15px;
+            background-color: rgb(79, 167, 202);
+            position: absolute;
+            left: -15px;
+            transform-origin: right;
+            transform: rotateY(-90deg) ;            
+        }
+        .btn2-box .btn2::after{
+            content: "";
+            height: 15px;
+            width: 100%;
+            background-color: rgb(79, 167, 202);
+            position: absolute;
+            left: 0;
+            bottom: -15px;
+            transform-origin: top;
+            transform: rotateX(-90deg) ;
+        }
+        .btn2-box .btn2:active{
+            top: 5px;
+        }
+        .btn2-box .btn2:active::before{
+            width: 10px;
+            left: -10px;
+        }
+        .btn2-box .btn2:active::after{
+            height: 10px;
+            bottom: -10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="btn1-box">
+        <span style="color:white">悬停效果</span>
+        <div class="btn1">发光按钮</div>   
+    </div>
+    <div class="btn2-box">
+        <span>点击效果</span>
+        <div class="btn2">立体按钮</div>
+    </div>
+</body>
+</html>
